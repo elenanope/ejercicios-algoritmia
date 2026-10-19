@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Algoritmia - Elena</title>
+    <style>
+        body {
+            background-color: #bdbae0;
+        }
+
+        * {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            max-width: 60rem;
+            margin-inline: auto;
+            padding-inline: 2rem;
+            margin-block: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        h1,
+        h2 {
+            margin-top: 2rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="button"],
+        input[type="submit"],
+        input[type="radio"] {
+            margin-top: 1rem;
+            width: fit-content;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: rgb(107, 134, 73);
+        }
+
+        label {
+            margin-top: 1.5rem;
+        }
+
+        label input[type="radio"] {
+            margin-top: 0;
+        }
+
+        input[type="button"],
+        input[type="submit"] {
+            background-color: rgb(142, 91, 140);
+            border-radius: 4px;
+            border-style: none;
+            padding: 0.2rem 0.4rem;
+            color: beige;
+            transition: background-color 0.2s;
+        }
+
+        input[type="button"]:hover,
+        input[type="submit"]:hover {
+            background-color: rgb(105, 58, 103);
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .answer {
+            color: #494299;
+            padding: 0.3rem;
+            margin-block: 0.5rem;
+            border: 3px solid rgb(169, 214, 117);
+            background-color: rgb(230, 245, 212);
+            border-radius: 8px;
+            width: fit-content;
+        }
+
+        .answer:empty {
+            display: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-manager {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            gap: 0.3rem;
+        }
+
+        #number-container,
+        #word-container {
+            display: flex;
+            flex-direction: column;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ejercicios Algoritmia</h1>
+        <h2>Tablas de multiplicar</h2>
+        <form>
+            <label for="numberToMult">Consigue la tabla de multiplicar de:</label>
+            <input type="number" id="numberToMult" required min="1" placeholder="escribe un número">
+            <input type="submit" id="buttonToMult" value="Recibir tabla de multiplicar">
+        </form>
+        <div class="answer" id="multTable"></div>
+
+        <h2>Números ordenados</h2>
+        <form>
+            <label><input type="radio" name="order" value="true" checked> Menor a mayor</label>
+            <label><input type="radio" name="order" value="false"> Mayor a menor</label>
+            <input type="button" id="orderedArrayPromptButton" value="Añade números por prompt">
+            <label for="first-number">Números para ordenar:</label>
+            <div class="input-manager">
+                <div id="number-container">
+                    <input type="number" id="first-number" class="number" placeholder="añade un número aquí" required
+                        min="1">
+                </div>
+                <input type="button" id="add-number" value="+">
+            </div>
+            <input type="submit" id="orderedArrayInputButton" value="Ordena números por input">
+        </form>
+        <p class="answer" id="orderedArray"></p>
+
+        <h2>¿Es un año <dfn title="bisiesto es aquel que tiene 366 días, en vez de 365">bisiesto</dfn>?</h2>
+        <form>
+            <label for="checkLeap">Año a comprobar:</label>
+            <input type="number" id="checkLeap" value="2026" placeholder="escribe un año" min="1" required>
+            <input type="submit" id="leapYearButton" value="¿Es bisiesto?">
+        </form>
+        <p class="answer" id="isLeapYear"></p>
+
+        <h2>¿Cuántos de este carácter hay aquí?</h2>
+        <form>
+            <label><input type="checkbox" id="caseSensitive"> Distinguir entre mayúsculas/minúsculas</label>
+            <label for="characterToSearch"> Carácter a buscar: (solo contará el primer carácter que escribas)</label>
+            <input type="text" id="characterToSearch" placeholder="escribe un carácter" required>
+            <label for="first-text">Palabras en las que buscar:</label>
+            <div class="input-manager">
+                <div id="word-container">
+                    <input type="text" id="first-text" class="word" placeholder="añade una palabra aquí" minlength="1"
+                        required>
+                </div>
+                <input type="button" id="add-word" value="+">
+            </div>
+            <input type="submit" id="checkCharButton" value="Comenzar búsqueda">
+        </form>
+        <p class="answer" id="countedCharacters"></p>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
